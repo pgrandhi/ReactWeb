@@ -2,3 +2,5 @@
 package-lock.json
 /config/keys.js
 /.vs
+/client/node_modules
+/client/package-lock.json

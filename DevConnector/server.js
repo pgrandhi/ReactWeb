@@ -4,6 +4,7 @@ const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 const bodyparser = require('body-parser');
+const passport = require('passport');
 const app = express();
 
 //body parser middleware
@@ -21,6 +22,10 @@ mongoose
    .then(() => console.log('MongoDB connected!'))
    .catch(err => console.log(err));
 
+//Passport middleware
+app.use(passport.initialize());
+require('./config/passport')(passport);
+
 //first route  - arrow functions / lambdas/delegates
 app.get('/', (reg, res) => res.send('Hello World'));
 
@@ -37,3 +42,4 @@ const port = 5555
 //app.listen(port);
 //back ticks are used for inline formatting
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
