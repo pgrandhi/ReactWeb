@@ -6,6 +6,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  username : {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     required: true
@@ -14,8 +18,12 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  avatar: {
+  gender: {
     type: String
+  },
+  birthday: {
+    type: Date,
+    required: true
   },
   date: {
     type: Date,
