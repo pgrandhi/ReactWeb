@@ -7,7 +7,7 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  MediaLinks: {
+  mediaLinks: {
     type: [String],
     required: true
   },
@@ -41,7 +41,7 @@ const PostSchema = new Schema({
       name: {
         type: String
       },
-      Icon: {
+      profilePic: {
         type: String
       },
       date: {
@@ -50,30 +50,6 @@ const PostSchema = new Schema({
       }
     }
   ],
-  sendTo: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
-      }
-    }
-  ],
-  socialMedia: {
-    facebook: {
-      type: Boolean
-    },
-    twitter: {
-      type: Boolean
-    },
-    tumblr: {
-      type: Boolean
-    }
-  },
-  collection: 
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'collections'
-    },
   date: {
     type: Date,
     default: Date.now
