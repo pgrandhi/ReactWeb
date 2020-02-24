@@ -7,20 +7,18 @@ const StorySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  MediaLinks: {
+  mediaLinks: {
     type: [String]
   },
   text: {
     type: String
   },
-  likes: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
-      }
-    }
-  ],
+  tags: {
+    type: [String]
+  },
+  location: {
+    type: String
+  },
   messages: [
     {
       user: {
@@ -34,20 +32,13 @@ const StorySchema = new Schema({
       name: {
         type: String
       },
-      Icon: {
-        type: String
+      mediaUrl: {
+        type: String,
+        required: true
       },
       date: {
         type: Date,
         default: Date.now
-      }
-    }
-  ],
-  SendTo: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
       }
     }
   ],

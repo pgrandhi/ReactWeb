@@ -6,17 +6,7 @@ const ProfileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  name: {
-    type: String,
-    required: true,
-    max: 40
-  },
-  username: {
-    type: String,
-    required: true,
-    max: 40
-  },
-  ProfilePicLink: {
+  profilePicUrl: {
     type: String
   },
   website: {
@@ -25,12 +15,21 @@ const ProfileSchema = new Schema({
   bio: {
     type: String
   },
+  phone: {
+    type: String,
+  },
+  gender: {
+    type: String
+  },
   followers: [
     {
       user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
-      }
+      },
+      following: {
+        type: Boolean
+      }      
     }
   ],
   following:[
@@ -38,20 +37,23 @@ const ProfileSchema = new Schema({
       user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
+      },
+      following: {
+        type: Boolean
       }
     }
   ],
   linkedAccounts: [
     {
-      socialMediaAccount: {
+      account: {
         type: String,
         required: true
       },
-      UsernameorEmail: {
+      email: {
         type: String,
         required: true
       },
-      Password: {
+      password: {
         type: String,
         required: true
       }

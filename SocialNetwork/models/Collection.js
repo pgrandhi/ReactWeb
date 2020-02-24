@@ -8,10 +8,16 @@ const CollectionSchema = new Schema({
     ref: 'users'
   },
   name:{
-    type: [String]
+    type: String
   },
-  PostLinks: {
-    type: [String]
-  }
+  posts: [
+    {
+      post: {
+        type: Schema.Types.ObjectId,
+        ref: 'posts'
+      }
+    }
+  ]
 });
+
 module.exports = Story = mongoose.model('collection', CollectionSchema);
